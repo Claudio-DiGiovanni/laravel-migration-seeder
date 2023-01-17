@@ -9,5 +9,18 @@
 </head>
 <body>
     <h1>homepage</h1>
+    <ul>
+        @foreach ($trains as $train)
+            <li>{{$train->azienda}}
+            <ul>
+                <li>{{$train->stazione_partenza}}</li>
+                <li>{{$train->stazione_arrivo}}</li>
+                <li>{{$train->partenza}}</li>
+                <li>{{$train->arrivo}}</li>
+                <li>{{$train->codice_treno}}</li>
+                <li>{{$train->n_carrozze}}</li>
+            </ul></li>
+        @endforeach
+    </ul>
 </body>
 </html>
