@@ -13,12 +13,18 @@
         @foreach ($trains as $train)
             <li>{{$train->azienda}}
             <ul>
-                <li>{{$train->stazione_partenza}}</li>
-                <li>{{$train->stazione_arrivo}}</li>
-                <li>{{$train->partenza}}</li>
-                <li>{{$train->arrivo}}</li>
-                <li>{{$train->codice_treno}}</li>
-                <li>{{$train->n_carrozze}}</li>
+                <li>Stazione di partenza: {{$train->stazione_partenza}}</li>
+                <li>Stazione di arrivo: {{$train->stazione_arrivo}}</li>
+                <li>Orario partenza: {{$train->partenza}}</li>
+                <li>Orario arrivo: {{$train->arrivo}}</li>
+                <li>Codice del treno: {{$train->codice_treno}}</li>
+                <li>Numero carrozze: {{$train->n_carrozze}}</li>
+                @if ($train->puntuale === 0)
+                    <li style="color: red"><strong>RITARDO</strong></li>
+                @endif
+                @if ($train->cancellato === 0)
+                <li style="color: red"><strong>CANCELLATO</strong></li>
+                @endif
             </ul></li>
         @endforeach
     </ul>
